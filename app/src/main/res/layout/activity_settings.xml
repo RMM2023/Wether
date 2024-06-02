@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings"
+    android:background="#00B6FF">
+
+    <TextView
+        android:id="@+id/nameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Настройки"
+        android:textSize="36dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="15dp"/>
+    <TextView
+        android:id="@+id/settings1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Единица измерения"
+        android:textSize="36dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/nameSettings"
+        app:layout_constraintStart_toStartOf="@+id/nameSettings"
+        app:layout_constraintEnd_toEndOf="@+id/nameSettings"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:id="@+id/settings2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Интервал синхронизации данных"
+        android:textSize="36dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/settings1"
+        app:layout_constraintStart_toStartOf="@+id/settings1"
+        app:layout_constraintEnd_toEndOf="@+id/settings1"
+        android:layout_marginTop="100dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
