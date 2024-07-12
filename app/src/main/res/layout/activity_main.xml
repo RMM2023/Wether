@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".presentation.ui.activity.MainActivity"
     android:background="#00B6FF">
 
     <EditText
@@ -172,7 +172,13 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="15dp"/>
 
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="3dp"/>
 
     <ImageView
         android:id="@+id/vector1"
@@ -185,6 +191,7 @@
         android:layout_marginBottom="30dp"/>
 
     <TextView
+        android:id="@+id/sunrise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -196,6 +203,14 @@
         android:layout_marginStart="15dp"/>
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/sunrise"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"/>
+
+    <ImageView
         android:id="@+id/mainImageSun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -203,7 +218,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageDay2"
         app:layout_constraintEnd_toEndOf="@+id/imageDay2"
         app:layout_constraintBottom_toTopOf="@+id/imageDay2"
-        android:layout_marginBottom="75dp"/>
+        android:layout_marginBottom="60dp"/>
 
     <ImageView
         android:id="@+id/vector2"

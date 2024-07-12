@@ -1,11 +1,8 @@
-package com.practicum.wether
+package com.practicum.wether.presentation.ui.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.practicum.wether.R
 
 class Settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
