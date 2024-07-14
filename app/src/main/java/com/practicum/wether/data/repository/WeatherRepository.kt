@@ -1,6 +1,8 @@
 package com.practicum.wether.data.repository
 
 import com.practicum.wether.data.remote.WeatherApiService
+import com.practicum.wether.data.remote.WeatherResponse
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,5 +15,7 @@ object WeatherRepository {
             .build()
         apiService = retrofit.create(WeatherApiService::class.java)
     }
-    fun getWeather(key : String, city : String) = apiService.getCurrentWeather(key, city)
+    fun getWeather(key : String, city : String) : Call<WeatherResponse>{
+        return apiService.getCurrentWeather(key, city)
+    }
 }
