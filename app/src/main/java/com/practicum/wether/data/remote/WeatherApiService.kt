@@ -8,6 +8,7 @@ interface WeatherApiService {
     @GET("current.json")
     fun getCurrentWeather(
         @Query("key") key:String,
-        @Query("q") city : String
+        @Query("q") city : String,
+        @Query("days") days : Int = 1
     ) : Call<WeatherResponse>
 }
