@@ -14,12 +14,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.practicum.wether.R
 import com.practicum.wether.WEATHER_KEY
+import com.practicum.wether.data.model.Forecast
 import com.practicum.wether.data.remote.WeatherResponse
 import com.practicum.wether.data.repository.WeatherRepository
 import com.practicum.wether.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Locale
 import kotlin.contracts.contract
 
 class MainActivity : AppCompatActivity() {
@@ -30,10 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.imageSettings.setOnClickListener{
-            val startIntent = Intent(this, Settings :: class.java)
-            startActivity(startIntent)
-        }
         binding.cityEditText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -66,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful){
                     response.body()?.let {
                         updateUI(it)
+                        updateForecastUI(it.forecast)
                         saveLastSearchedCity(city)
                     }
                 }else{
@@ -77,6 +77,26 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Нет подключения к сети", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun updateForecastUI(forecast: Forecast) {
+        val days = listOf(binding.day1, binding.day2, binding.day3)
+        val dates = listOf(binding.textDate1, binding.textDate2, binding.textDate3)
+        val icons = listOf(binding.iconDay1, binding.iconDay2, binding.iconDay3)
+        val degrees = listOf(binding.degreeDay1, binding.degreeDay2, binding.degreeDay3)
+
+        forecast.forecastday.take(3).forEachIndexed { index, forecastDay ->
+            val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(forecastDay.date)
+            val dayOfWeek = SimpleDateFormat("EEEE", Locale("ru")).format(date)
+
+            days[index].text = dayOfWeek
+            dates[index].text = forecastDay.date
+
+            val iconUrl = "https:${forecastDay.day.condition.icon}"
+            Glide.with(this).load(iconUrl).into(icons[index])
+
+            degrees[index].text = "${forecastDay.day.maxtemp_c}°C/${forecastDay.day.mintemp_c}°C"
+        }
     }
     private fun updateUI(weatherResponse : WeatherResponse){
         val location = weatherResponse.location

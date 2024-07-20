@@ -14,23 +14,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageSettings"
+        app:layout_constraintEnd_toEndOf="parent"
         android:hint="@string/search"
         android:layout_marginHorizontal="10dp"
         android:background="@drawable/custom_edit_text_background"
         android:layout_marginTop="10dp"/>
-
-    <ImageView
-        android:id="@+id/imageSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/settings"
-        app:layout_constraintStart_toEndOf="@+id/cityEditText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="10dp"/>
 
     <TextView
         android:id="@+id/name"

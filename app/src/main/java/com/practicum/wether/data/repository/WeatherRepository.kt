@@ -16,6 +16,6 @@ object WeatherRepository {
         apiService = retrofit.create(WeatherApiService::class.java)
     }
     fun getWeather(key : String, city : String) : Call<WeatherResponse>{
-        return apiService.getCurrentWeather(key, city)
+        return apiService.getForecastWeather(key, city)
     }
 }

@@ -5,10 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherApiService {
-    @GET("current.json")
-    fun getCurrentWeather(
+    @GET("forecast.json")
+    fun getForecastWeather(
         @Query("key") key:String,
         @Query("q") city : String,
-        @Query("days") days : Int = 1
+        @Query("days") days : Int = 3
     ) : Call<WeatherResponse>
 }
